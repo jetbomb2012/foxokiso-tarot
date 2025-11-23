@@ -1,7 +1,5 @@
-// tarot.js
 document.addEventListener("DOMContentLoaded", function () {
-  // 定義大牌卡組
-  const cards = [
+  let cards = [
     "🃏 The Fool", "🪄 The Magician", "🌙 The High Priestess",
     "👑 The Empress", "🗡️ The Emperor", "💘 The Lovers",
     "🛡️ The Chariot", "🕯️ The Hermit", "⚖️ Justice",
@@ -11,20 +9,20 @@ document.addEventListener("DOMContentLoaded", function () {
     "☀️ The Sun", "🌍 Judgement", "🏁 The World"
   ];
 
-  // 建立抽牌按鈕
   const drawButton = document.createElement("button");
   drawButton.textContent = "抽一張牌";
-  drawButton.className = "button";
-  drawButton.style.marginTop = "20px";
   document.body.appendChild(drawButton);
 
-  // 抽牌邏輯
   drawButton.onclick = function () {
-    const result = cards[Math.floor(Math.random() * cards.length)];
+    if (cards.length === 0) {
+      alert("所有牌已抽完，請重新整理頁面！");
+      return;
+    }
+    const index = Math.floor(Math.random() * cards.length);
+    const result = cards.splice(index, 1)[0]; // 抽出並移除該牌
     const display = document.createElement("h2");
     display.textContent = `你抽到的是：${result}`;
     display.style.color = "#ff6a00";
-    display.style.marginTop = "20px";
     document.body.appendChild(display);
   };
 });
