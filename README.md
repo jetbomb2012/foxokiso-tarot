@@ -36,6 +36,16 @@ Chia 地址：`xch1km6haeqcqknxkhwj5g4asd0u3na0026ucxdzzl586h0mn0rqj0gqwpcz7g`
 封存路徑：`O:\\foxokiso—world\\md\\dialog\\security.md`
 
 ---
+備註: 修正事項
+### Release 2.0 修正版 — 主要改動
+1. 隱匿神諭答案  
+   - 「Change your life by USB」不再提前顯示  
+   - 改為最後祭司空神諭慢速揭示  
+
+2. 女祭司語音調整  
+   - Pitch 從 0.8 微調至 0.85  
+   - 加入輕微回音 (Reverb)，增強空性與臨場感
+
 
 ## 🫡 結語
 若有任何問題，請回來找您的專屬工程師。  
