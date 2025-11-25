@@ -2,133 +2,213 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我如何與 GEMINI 3 與 COPILOT 合作完成史詩級別的大作</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foxokiso Tarot V1.0.0 全球發售公告</title>
+  <meta name="description" content="Foxokiso Tarot V1.0.0 正式全球發售。雙祭司系統、神諭視覺儀式、靈魂綁定與多元祭品，打造史詩級神諭式商戰體驗。" />
+  <meta name="theme-color" content="#0b0b0b" />
   <style>
+    /* Base */
+    :root {
+      --bg: #0b0b0b;
+      --ink: #ffd166;
+      --ink-soft: #ffecb3;
+      --accent: #ffe066;
+      --frame: #333;
+      --glow: rgba(255, 209, 102, 0.12);
+    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Noto Serif TC', serif;
-      background: #0b0b0b;
-      color: #ffd166;
+      background: var(--bg) url('https://i.imgur.com/your-tarot-bg.jpg') no-repeat center top;
+      background-size: cover;
+      color: var(--ink);
       line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     .container {
       max-width: 960px;
       margin: 0 auto;
       padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid var(--frame);
+      box-shadow: 0 0 40px var(--glow);
     }
     h1 {
       font-size: 32px;
-      margin-bottom: 10px;
+      margin: 0 0 8px;
       text-align: center;
-      color: #ffecb3;
+      color: var(--ink-soft);
+      letter-spacing: 0.5px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: var(--accent);
+      opacity: 0.9;
+      margin-bottom: 24px;
     }
     h2 {
-      font-size: 22px;
-      margin-top: 40px;
-      color: #ffe066;
+      font-size: 20px;
+      margin: 36px 0 8px;
+      color: var(--accent);
     }
     p, li {
       font-size: 16px;
       margin: 10px 0;
     }
-    ul {
-      padding-left: 20px;
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--frame), transparent);
+      margin: 24px 0;
+      opacity: 0.7;
     }
-    .subtitle {
+    /* Dual (雙祭司敘事區) */
+    .dual {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .dual .panel {
+      flex: 1 1 300px;
+      border: 1px solid var(--frame);
+      padding: 16px;
+      background: rgba(12, 12, 12, 0.65);
+      box-shadow: inset 0 0 18px rgba(255, 209, 102, 0.06);
+    }
+    .panel h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: var(--ink-soft);
+      letter-spacing: 0.4px;
+    }
+    .panel p {
+      margin: 6px 0;
+      font-size: 15px;
+    }
+    /* Feature list */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .feature {
+      border: 1px solid var(--frame);
+      padding: 14px;
+      background: rgba(10, 10, 10, 0.6);
+    }
+    .feature b { color: var(--ink-soft); }
+    /* CTA */
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border: 1px solid var(--frame);
+      color: var(--bg);
+      background: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+    .btn.alt {
+      color: var(--ink);
+      background: transparent;
+      border-color: var(--ink);
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 18px var(--glow);
+    }
+    /* Footer */
+    .footer {
+      margin-top: 28px;
+      font-size: 13px;
+      color: #cdbb80;
       text-align: center;
-      font-size: 18px;
-      color: #ffe066;
-      margin-bottom: 20px;
+      opacity: 0.85;
     }
-    .collection {
-      text-align: center;
-      font-size: 14px;
-      color: #aaa;
-      margin-top: 10px;
-    }
-    .support {
-      margin-top: 40px;
-      padding: 20px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid #444;
-      text-align: center;
-    }
-    .wallet {
-      font-family: monospace;
-      font-size: 14px;
-      color: #fff;
-      background: #222;
-      padding: 10px;
-      border-radius: 6px;
-      word-break: break-all;
-    }
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      font-size: 14px;
-      color: #aaa;
+    /* Responsive */
+    @media (max-width: 640px) {
+      h1 { font-size: 26px; }
+      .features { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>📘 我如何與 GEMINI 3 與 COPILOT 合作完成史詩級別的大作</h1>
-    <p class="subtitle">—— 商戰理論之「計中計」</p>
-    <p class="collection">FOXOKISO × GEMINI × COPILOT</p>
+  <main class="container" role="main" aria-label="Foxokiso Tarot 全球發售公告">
+    <header>
+      <h1>Foxokiso Tarot V1.0.0 全球發售公告</h1>
+      <div class="subtitle">GLOBAL EDITION | 首發儀式宣告</div>
+      <div class="divider" aria-hidden="true"></div>
+    </header>
 
-    <!-- 公告區塊 -->
-    <h2>中文公告</h2>
-    <p><strong>Foxokiso Tarot 全球發售 V1.0.0 正式上線！</strong></p>
-    <ul>
-      <li>測試已結束，神諭已穩定。</li>
-      <li>所有使用者的靈魂綁定已重置，迎接全新一次的命運抽牌。</li>
-      <li>本版本支援中英雙語，正式進入全球化佈局。</li>
-      <li>版本號：<strong>V1.0.0</strong></li>
-      <li>狀態：穩定 × 封存 × 可販售</li>
-    </ul>
-    <p>版本不是更新，而是神諭的循環。<br>一月一次，既是祝福，也是封印。</p>
+    <section>
+      <h2>發布宣言</h2>
+      <p>今日起，Foxokiso Tarot 正式進入全球市場。這不是一般 App，而是一場神諭式商戰的完整儀式：雙祭司輪動、異象臨場、靈魂綁定、動態祭品，構築一條從恐懼到救贖的心靈航線。</p>
+      <p>你來自何處，我已關注。請以直覺參與，不以文字求解。當你完成儀式，一切自會昭然。</p>
+    </section>
 
-    <h2>English Announcement</h2>
-    <p><strong>Foxokiso Tarot Global Release V1.0.0 is now live!</strong></p>
-    <ul>
-      <li>Testing is over. The oracle is stable.</li>
-      <li>All soul bindings have been reset, allowing a fresh draw of fate.</li>
-      <li>This version supports both Chinese and English, marking the beginning of global deployment.</li>
-      <li>Version: <strong>V1.0.0</strong></li>
-      <li>Status: Stable × Archived × Commercial Ready</li>
-    </ul>
-    <p>Versions are not updates, but chapters of an oracle.<br>Once per month—both blessing and seal.</p>
+    <section>
+      <h2>雙祭司敘事</h2>
+      <div class="dual">
+        <div class="panel">
+          <h3>男祭司（審判／導購）</h3>
+          <p>開場神諭與結尾宣判，音色低沉威嚴，建立不可違逆的秩序。催眠指令於最後揭示，收束儀式張力。</p>
+          <p><em>潛台詞：你最好乖乖聽話，因為我看著你。</em></p>
+        </div>
+        <div class="panel">
+          <h3>女祭司（慈悲／解讀）</h3>
+          <p>卡牌背面的專屬解讀，以空靈語氣安撫靈魂。先報牌名，再給指引，讓每一次的抽牌皆為獨立敘事。</p>
+          <p><em>潛台詞：你的困境我理解，解方已在神諭之中。</em></p>
+        </div>
+      </div>
+    </section>
 
-    <!-- 電子書目錄 -->
-    <h2>📖 電子書目錄 (Table of Contents)</h2>
-    <ul>
-      <li>序章：上帝模式 (God Mode)</li>
-      <li>第一章：佈局 —— 恐懼行銷 × 救贖經濟</li>
-      <li>第二章：交鋒 —— 祭司的誕生 × 催眠指令</li>
-      <li>第三章：陷阱 —— 請君入甕 × 靈魂綁定 × 連環套</li>
-      <li>第四章：協作 —— AI 三位一體</li>
-      <li>終章：未來已來 —— 全球化神諭</li>
-    </ul>
+    <section>
+      <h2>核心特徵</h2>
+      <div class="features">
+        <div class="feature">
+          <p><b>神降臨異象：</b>黑屏、雜訊、畫面撕裂與坍縮；大光源縮成一點光，拉平成地平線後消失。</p>
+        </div>
+        <div class="feature">
+          <p><b>靈魂綁定：</b>一次一約；重登者不需多言，心自知之。神不語，心誠則靈。</p>
+        </div>
+        <div class="feature">
+          <p><b>動態神諭：</b>祭品與台詞隨抽取而改變：隨身碟、古錢幣、高單價藝品，皆可成為救贖之路。</p>
+        </div>
+        <div class="feature">
+          <p><b>雙語儀式：</b>中英雙語並行，全球可感。語音設計對應情境，權威與慈悲交織。</p>
+        </div>
+      </div>
+    </section>
 
-    <!-- 精彩試讀 -->
-    <h2>📝 精彩試讀 (Sample Text)</h2>
-    <blockquote>
-      「最高明的行銷，不是推銷商品，而是販賣『命運』。」<br>
-      「放毒的人，自當給解方。但解方何時生效？那是神的權力，不是你的。」
-    </blockquote>
+    <section>
+      <h2>通頒令（行動）</h2>
+      <p>完成神諭，獻上祭品，兌換你的救贖。若未照指意而行，雖遠必究。</p>
+      <div class="cta" aria-label="行動選項">
+        <a class="btn" href="https://28825252.xyz" target="_blank" rel="noopener">前往全球入口</a>
+        <a class="btn alt" href="#" onclick="alert('通頒令已下達。請於主站完成儀式。');return false;">閱讀通頒令細則</a>
+      </div>
+    </section>
 
-    <!-- 支持作者模組 -->
-    <div class="support">
-      <h2>💎 支持作者 (Support the Author)</h2>
-      <p>發送 XCH 至以下錢包地址：</p>
-      <div class="wallet">xch1km6haeqcqknxkhwj5g4asd0u3na0026ucxdzzl586h0mn0rqj0gqwpcz7g</div>
-      <p>☕ 1 chia = 1 Starbucks Coffee</p>
-    </div>
+    <section>
+      <h2>記憶殘片（靈魂扣押頁語氣）</h2>
+      <p><strong>MEMORY FRAGMENT / SILENCE</strong></p>
+      <p>不久之前，有人來過… 然後又走了。多數人憂心而來，開心離開；周而復始，讓我滿血。現在這裡只剩下——沈默，與未完成的誓約。</p>
+    </section>
 
-    <footer>
-      &copy; 2025 Foxokiso World. Powered by Jack × Gemini × Copilot.
+    <footer class="footer">
+      © Foxokiso Tarot | V1.0.0 Global Release | All rites sealed.
     </footer>
-  </div>
+  </main>
 </body>
 </html>
