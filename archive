@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>Foxokiso 電子書 + 移轉預告</title>
+  <style>
+    body { background:#111; color:#e6e6e6; font:16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", sans-serif; margin:0; }
+    header { padding:28px 20px; border-bottom:1px solid #333; text-align:center; }
+    h1 { color:#ffd84d; margin:0 0 6px; font-size:22px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; padding:20px; }
+    .box { background:#181818; border:1px solid #2e2e2e; border-radius:10px; padding:16px; }
+    .box h2 { color:#9fe870; font-size:18px; margin:0 0 10px; }
+    ul { list-style:none; padding:0; margin:0; }
+    li + li { margin-top:8px; }
+    a { color:#7fd3ff; text-decoration:none; }
+    a:hover { color:#ffe37a; }
+    footer { padding:16px 20px; border-top:1px solid #333; color:#aaa; font-size:14px; text-align:center; }
+    .notice { background:#222; border:1px solid #555; border-radius:8px; padding:20px; margin:20px; }
+    .notice h2 { color:#ff9f4d; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Foxokiso 電子書入口 · 移轉預告</h1>
+    <div>本頁承載電子書分流與版本交接宣告</div>
+  </header>
+
+  <main class="grid">
+    <section class="box">
+      <h2>C 版（Copilot）</h2>
+      <ul>
+        <li><a href="/C/">進入 Copilot 電子書</a></li>
+      </ul>
+    </section>
+
+    <section class="box">
+      <h2>G3 版（Gemini3）</h2>
+      <ul>
+        <li><a href="/G3/">進入 Gemini3 電子書</a></li>
+      </ul>
+    </section>
+
+    <section class="box">
+      <h2>Archive 封存館</h2>
+      <ul>
+        <li><a href="/archive/">進入封存館</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="notice">
+    <h2>📜 版本移轉與封存預告</h2>
+    <p>
+      自 2025 年起，<strong>28825252.xyz</strong> 成為五年期主力入口，承載塔羅程式 V3.0。<br>
+      <strong>5711438.fun</strong> 暫時承載電子書入口，供展示與封存。<br>
+      <strong>foxokiso.xyz</strong> 已停用，避免衝突，未來將重新定位為測試場或跳轉入口。<br>
+    </p>
+    <p>
+      封存即永續，永續即不朽。<br>
+      每一次移轉，都是一次精神的交接。<br>
+    </p>
+  </div>
+
+  <footer>
+    © 2025 Foxokiso-world · Transition Release · 本頁位於 /archive/transition.html
+  </footer>
+</body>
+</html>
