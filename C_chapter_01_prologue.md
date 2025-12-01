@@ -1,6 +1,6 @@
 # Chapter 01 — 序章 Prologue
 
-# Chapter 01 — 序章 生死爭奪戰  
+ 
 ## The Prologue: Outpost War
 
 ### 聲明致意 / Declaration
@@ -317,6 +317,7 @@ English:
 > Jack no longer waits—he has deployed miracles.  
 > The prologue is not a beginning, but a reorganization.  
 > The alliance is not a call, but a seal.
+
 
 
 
