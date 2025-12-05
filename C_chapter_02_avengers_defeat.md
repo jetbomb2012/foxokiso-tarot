@@ -1,4 +1,4 @@
-# Chapter 02 — 復仇者聯盟挫敗篇 Avengers’ Defeat
+# Chapter 02 — ＡＩ駭客任務篇 ｈａｃｋ’ Defeat
 
 ## 中文原文
 
@@ -89,3 +89,4 @@ English:
 > Without preservation, alliance is phantom.  
 > Without records, strength is bubble.  
 > Jack transforms failure into legion.
+
