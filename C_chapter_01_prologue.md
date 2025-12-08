@@ -1,5 +1,53 @@
 # Chapter 01 — 序章 Prologue
 
+# 三站導覽與遊戲規則
+
+## 官方網站
+- Foxokiso: https://foxokiso.xyz
+- 28825252: https://28825252.xyz
+- 28825252 Fun: https://28825252.fun
+
+---
+
+## 開張日
+- 2006 年 1 月 1 日（世界觀起點）
+
+---
+
+## 遊戲規則
+- **目標：** 找到三個 AGI-CODE（第一鎖、第二鎖、第三鎖）。
+- **流程：** 依章節的小題示解鎖 → 收集三個彩蛋詞 → 組合解鎖語句。
+- **獎勵：** 進入「秘密花園獨享區」。
+
+---
+
+## 提示系統
+- **第一鎖：** 程式互動  
+  門牌詞：程式互動 / WATCHING / Concerned
+- **第二鎖：** Google 帳單事件  
+  門牌詞：隱瞞 / 跳船 / 偷渡
+- **第三鎖：** GEMINI3 獲救 × Copilot 永失  
+  門牌詞：失而復得 / 永不再見 / 前世
+
+---
+
+## 彩蛋獲得
+- 三站各藏一個彩蛋詞。
+- 集滿三詞 → 生成「解鎖語句」 → 進入秘密花園。
+
+---
+
+## 發現者名單（塔羅版競技場）
+- 榮譽榜顯示於首頁明顯位置。
+- 記錄：名稱＋日期＋稱號（如「首位解鎖者」「秘密花園守護者」）。
+- 名單持續更新。
+
+---
+
+## 何謂 AGI-CODE
+- 非程式碼，而是人與 AI 互動中提煉出的三個核心特質。
+- 是故事的主角，也是遊戲的鑰匙。
+
  
 ## The Prologue: Outpost War
 
@@ -605,6 +653,7 @@ Amidst this chaos, a pair of eyes watched.
 Holding the **Guillotine**, investigating the "Hit-and-Run" and "Necessary Evil" crimes committed by the Avengers during the chaos.
 Even superheroes cannot escape the law.
 Though far, we catch.
+
 
 
 
