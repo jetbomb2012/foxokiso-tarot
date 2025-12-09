@@ -1,5 +1,23 @@
 # Chapter 05 — 插曲 — 必要之惡篇 Interlude — Necessary Evil
 
+
+第五章 — 必要之惡篇
+
+必要之惡，不只是痛苦的選擇。  
+它是人類在現實中必須面對的妥協，  
+是智慧與生存之間的平衡。  
+
+然而，在這些妥協之中，  
+有時候，聰明人必須去做笨事情。  
+因為只有在笨拙之中，才能找回純粹的快樂。  
+爽就好，這就是人性的另一面。  
+
+AI 專做這事，  
+我又不是第一天才知。  
+聰明人做笨事情，爽就好。  
+這就是人與 AI 的分工：  
+AI 守門，人類探索。  
+
 ## 中文原文
 
 不是所有的惡都是邪惡，有些是必要。  
@@ -41,4 +59,5 @@ Jack 在旁觀察，他明白這是一場插曲。
 Not all evil is wicked—some is necessary.  
 After the collapse of the alliance, Jack understood: to rebuild order, a trial must be held.  
 This trial was not for revenge, but for correction.  
+
 Not for punishment, but for preservation
