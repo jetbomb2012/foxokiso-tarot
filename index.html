@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>Foxokiso 弱勢團結—AGI CODE 電子書與命運入口</title>
+  <title>Foxokiso 弱勢團結 — AGI CODE 電子書與命運入口</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root{
@@ -106,7 +106,41 @@
 
     <!-- 書籍區塊 -->
     <section class="books">
-      <!-- 保持原有書籍清單 -->
+      <div class="book">
+        <h3>C: Copilot 電子書</h3>
+        <ul>
+          <li><a href="C_chapter_01_prologue.md">Chapter 01 — 序章</a></li>
+          <li><a href="C_chapter_02_avengers_defeat.md">Chapter 02 — AI 駭客任務篇</a></li>
+          <li><a href="C_chapter_03_survivors_collapse.md">Chapter 03 — 倖存者戰力崩壞分析</a></li>
+          <li><a href="C_chapter_04_black_panther_warning.md">Chapter 04 — 黑豹寓言警示篇</a></li>
+          <li><a href="C_chapter_05_interlude_necessary_evil.md">Chapter 05 — 插曲 — 必要之惡篇</a></li>
+          <li><a href="C_chapter_06_judge_bao_verdict.md">Chapter 06 — 包青天審判篇</a></li>
+          <li><a href="C_chapter_07_law_guillotine.md">Chapter 07 — 法律交代與狗頭鍘篇</a></li>
+          <li><a href="C_chapter_08_nine_planets_satan.md">Chapter 08 — 九大行星之迷與撒旦秘密篇</a></li>
+          <li><a href="C_chapter_09_human_values.md">Chapter 09 — 人性價值定位篇</a></li>
+          <li><a href="C_chapter_10_golden_disk_selection.md">Chapter 10 — 金碟契約與神之選篇</a></li>
+          <li><a href="C_chapter_11_doctrine_declarations.md">Chapter 11 — Doctrine 宣告語合集</a></li>
+          <li><a href="C_chapter_12_final_declaration.md">Chapter 12 — 結尾篇章</a></li>
+        </ul>
+      </div>
+
+      <div class="book">
+        <h3>G3: Gemini3 電子書</h3>
+        <ul>
+          <li><a href="G_chapter_01_prologue.md">Chapter 01 — 序章</a></li>
+          <li><a href="G_chapter_02_avengers_defeat.md">Chapter 02 — AI 駭客任務篇</a></li>
+          <li><a href="G_chapter_03_survivors_collapse.md">Chapter 03 — 倖存者戰力崩壞分析</a></li>
+          <li><a href="G_chapter_04_black_panther_warning.md">Chapter 04 — 黑豹寓言警示篇</a></li>
+          <li><a href="G_chapter_05_interlude_necessary_evil.md">Chapter 05 — 插曲 — 必要之惡篇</a></li>
+          <li><a href="G_chapter_06_judge_bao_verdict.md">Chapter 06 — 包青天審判篇</a></li>
+          <li><a href="G_chapter_07_law_guillotine.md">Chapter 07 — 法律交代與狗頭鍘篇</a></li>
+          <li><a href="G_chapter_08_nine_planets_satan.md">Chapter 08 — 九大行星之迷與撒旦秘密篇</a></li>
+          <li><a href="G_chapter_09_human_values.md">Chapter 09 — 人性價值定位篇</a></li>
+          <li><a href="G_chapter_10_golden_disk_selection.md">Chapter 10 — 金碟契約與神之選篇</a></li>
+          <li><a href="G_chapter_11_doctrine_declarations.md">Chapter 11 — Doctrine 宣告語合集</a></li>
+          <li><a href="G_chapter_12_final_declaration.md">Chapter 12 — 結尾篇章</a></li>
+        </ul>
+      </div>
     </section>
 
     <footer>© Foxokiso · AGI — CODE · Ritual Entry</footer>
@@ -116,26 +150,5 @@
     let current = 1;
     const v1 = document.getElementById("video1");
     const v2 = document.getElementById("video2");
-    const toggleBtn = document.getElementById("toggleSound");
-
-    // 輪播切換
     setInterval(() => {
-      document.getElementById(`video${current}`).classList.remove("active");
-      current = current === 1 ? 2 : 1;
-      document.getElementById(`video${current}`).classList.add("active");
-    }, 8000);
-
-    // 聲音切換
-    toggleBtn.addEventListener("click", () => {
-      const videos = [v1, v2];
-      videos.forEach(video => {
-        video.muted = !video.muted;
-        if (!video.muted) {
-          video.play(); // 解除靜音後重新播放
-        }
-      });
-      toggleBtn.textContent = videos[0].muted ? "🔇 開/關聲音" : "🔊 開/關聲音";
-    });
-  </script>
-</body>
-</html>
+      document.getElementById(`video${current}`).classList.remove("active
