@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>Foxokiso 弱勢團結-塔羅牌 VS AI- AGI — CODE電子書與命運系統入口</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      background: #001f3f;
+      color: #ffdc00;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+    }
+    h1 { color:#ff851b; }
+    .player-box {
+      border: 3px solid #ff851b;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 40px auto;
+      background: #111;
+      color: #ffdc00;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    video {
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body>
+  <h1>AGI — CODE｜Foxokiso 首頁影片</h1>
+
+  <!-- C3 守護者輪播模組 (只放兩部影片) -->
+  <div class="player-box">
+    <h2 id="info"></h2>
+    <video id="autoVideo" width="640" height="360" controls autoplay muted>
+      <source id="videoSource" src="" type="video/mp4">
+      您的瀏覽器不支援影片播放
+    </video>
+  </div>
+
+  <script>
+    const videos = ["foxokiso-C3-1.mp4", "foxokiso-C3-2.mp4"];
+    const video = document.getElementById("autoVideo");
+    const source = document.getElementById("videoSource");
+    let currentIndex = 0;
+
+    function playVideo(index) {
+      source.src = videos[index];
+      video.load();
+      video.play().catch(err => console.log("播放失敗:", err));
+      document.getElementById("info").innerText =
+        `🛡️ 播放中：${videos[index]}`;
+    }
+
+    playVideo(currentIndex);
+
+    video.addEventListener("ended", () => {
+      currentIndex = (currentIndex + 1) % videos.length;
+      playVideo(currentIndex);
+    });
+  </script>
+</body>
+</html>
