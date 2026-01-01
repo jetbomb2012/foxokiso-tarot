@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>Foxokiso 首頁影片展示</title>
+  <title>Foxokiso 首頁影片輪播</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -28,28 +28,44 @@
     video {
       border-radius: 8px;
       box-shadow: 0 0 12px rgba(0,0,0,0.4);
-      margin: 15px 0;
     }
   </style>
 </head>
 <body>
-  <h1>AGI — CODE｜Foxokiso 首頁影片</h1>
+  <h1>AGI — CODE｜Foxokiso 首頁影片輪播</h1>
 
-  <!-- 三部影片展示 -->
+  <!-- 輪播播放器 -->
   <div class="player-box">
-    <h2>首頁影片播放</h2>
-    <video width="640" height="360" controls>
-      <source src="img/ad.mp4" type="video/mp4">
-      您的瀏覽器不支援影片播放
-    </video>
-    <video width="640" height="360" controls>
-      <source src="img/foxokiso.mp4" type="video/mp4">
-      您的瀏覽器不支援影片播放
-    </video>
-    <video width="640" height="360" controls>
-      <source src="cast.mp4" type="video/mp4">
+    <h2 id="info">首頁影片播放</h2>
+    <video id="autoVideo" width="640" height="360" controls autoplay muted>
+      <source id="videoSource" src="" type="video/mp4">
       您的瀏覽器不支援影片播放
     </video>
   </div>
+
+  <script>
+    // 三部影片清單
+    const videos = ["img/ad.mp4", "img/foxokiso.mp4", "cast.mp4"];
+    const video = document.getElementById("autoVideo");
+    const source = document.getElementById("videoSource");
+    let currentIndex = 0;
+
+    function playVideo(index) {
+      source.src = videos[index];
+      video.load();
+      video.play().catch(err => console.log("播放失敗:", err));
+      document.getElementById("info").innerText =
+        `🛡️ 播放中：${videos[index]}`;
+    }
+
+    // 初始播放第一部
+    playVideo(currentIndex);
+
+    // 播放結束後自動換下一部
+    video.addEventListener("ended", () => {
+      currentIndex = (currentIndex + 1) % videos.length;
+      playVideo(currentIndex);
+    });
+  </script>
 </body>
 </html>
