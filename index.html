@@ -379,128 +379,53 @@
   </script>
 </body>
 </html>
-<section id="agi-code-gate" class="gate">
-  <h2>古堡花園入口</h2>
-  <p>請輸入 AGI-CODE，將引導你進入古堡花園，發現古堡秘密！</p>
+<form id="agiForm" autocomplete="off" novalidate>
+  <label>答案格 1</label>
+  <input type="text" name="a1" placeholder="第一線索" />
 
-  <!-- 多答案格：可作為提示、分段或多重驗證 -->
-  <form id="agiForm" autocomplete="off" novalidate>
-    <div class="answers">
-      <label>答案格 1</label>
-      <input type="text" name="a1" placeholder="第一線索" inputmode="latin" />
+  <label>答案格 2</label>
+  <input type="text" name="a2" placeholder="第二線索" />
 
-      <label>答案格 2</label>
-      <input type="text" name="a2" placeholder="第二線索" inputmode="latin" />
+  <label>答案格 3</label>
+  <input type="text" name="a3" placeholder="第三線索" />
 
-      <label>答案格 3</label>
-      <input type="text" name="a3" placeholder="第三線索" inputmode="latin" />
-    </div>
+  <label>AGI-CODE</label>
+  <input type="password" name="agi" placeholder="輸入你的 AGI-CODE" />
 
-    <!-- 主驗證：AGI-CODE -->
-    <div class="agi">
-      <label>AGI-CODE</label>
-      <input type="password" name="agi" id="agi" placeholder="輸入你的 AGI-CODE" required />
-    </div>
-
-    <button type="submit" id="enterBtn">進入古堡花園</button>
-
-    <!-- 審計提示區 -->
-    <div id="auditHint" aria-live="polite" class="hint"></div>
-  </form>
-</section>
-
-<style>
-  .gate { max-width: 640px; margin: 2rem auto; padding: 1.5rem; border: 1px solid #333; border-radius: 12px; background: #0b0b0b; color: #eaeaea; }
-  .answers label, .agi label { display:block; margin-top: 0.75rem; font-weight: 600; }
-  input { width: 100%; padding: 0.6rem; margin-top: 0.25rem; border-radius: 8px; border: 1px solid #555; background:#121212; color:#eaeaea; }
-  input:focus { outline: 2px solid #7aa2ff; }
-  button { margin-top: 1rem; padding: 0.7rem 1rem; border: none; border-radius: 8px; background: #7aa2ff; color: #0b0b0b; font-weight: 700; cursor: pointer; }
-  .hint { margin-top: 0.75rem; font-size: 0.9rem; color: #9ad67b; }
-</style>
+  <button type="submit">進入古堡花園</button>
+</form>
 
 <script>
-/**
- * 審計純度：本地驗證僅作 UX；真正驗證請在伺服器端完成。
- * 這裡提供事件紀錄（timestamp + masked input）以供前端審計。
- */
 (function() {
   const form = document.getElementById('agiForm');
-  const hint = document.getElementById('auditHint');
-  const enterBtn = document.getElementById('enterBtn');
+  const SUCCESS_REDIRECT = 'https://foxokiso.xyz/agi/index.html';
 
-  // 可替換為你的實際 AGI-CODE 驗證端點
-  const VERIFY_ENDPOINT = '/api/verify-agi-code'; // POST { agi, a1, a2, a3 }
-
-  // 成功導向頁（古堡花園）
-  const SUCCESS_REDIRECT = '/garden/index.html';
-
-  // 失敗導向頁（提示或試煉）
-  const FAIL_REDIRECT = '/trial/gate.html';
-
-  function auditLog(event, status, masked) {
-    const record = {
-      event,
-      status,
-      masked,
-      ts: new Date().toISOString(),
-      ua: navigator.userAgent
-    };
-    // 可改為送往 /api/audit
-    console.log('[AGI-AUDIT]', record);
-    hint.textContent = status === 'ok'
-      ? '命運入口已觀測到你的信號。'
-      : '守門者正在審視你的密語…';
-  }
-
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    enterBtn.disabled = true;
-
     const fd = new FormData(form);
-    const payload = {
-      a1: (fd.get('a1') || '').trim(),
-      a2: (fd.get('a2') || '').trim(),
-      a3: (fd.get('a3') || '').trim(),
-      agi: (fd.get('agi') || '').trim()
-    };
+    const a1 = (fd.get('a1') || '').trim();
+    const a2 = (fd.get('a2') || '').trim();
+    const a3 = (fd.get('a3') || '').trim();
+    const agi = (fd.get('agi') || '').trim();
 
-    // 前端最小檢查（不暴露規則）
-    if (!payload.agi) {
-      auditLog('submit', 'need_agi', { agi: '***', a1: !!payload.a1, a2: !!payload.a2, a3: !!payload.a3 });
-      hint.textContent = '請輸入 AGI-CODE。';
-      enterBtn.disabled = false;
-      return;
-    }
+    // 判斷邏輯：只要任一格有正確值，就導向審核區
+    // 這裡用簡單示範，實際驗證請在伺服器端完成
+    const correctAnswers = ['rose', 'guardian', 'phoenix']; // 例子
+    const correctAGI = 'AGI-1234'; // 例子
 
-    auditLog('submit', 'pending', { agi: '***', a1: !!payload.a1, a2: !!payload.a2, a3: !!payload.a3 });
+    const ok =
+      correctAnswers.includes(a1.toLowerCase()) ||
+      correctAnswers.includes(a2.toLowerCase()) ||
+      correctAnswers.includes(a3.toLowerCase()) ||
+      agi === correctAGI;
 
-    try {
-      // 伺服器端驗證（建議：簽名、時間戳、來源環境）
-      const res = await fetch(VERIFY_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        credentials: 'same-origin'
-      });
-
-      if (!res.ok) throw new Error('network_or_server_error');
-
-      const data = await res.json(); // { ok: boolean, summon?: boolean, ticket?: string }
-      if (data.ok) {
-        auditLog('verify', 'ok', { agi: '***' });
-        // 可選：將 ticket 寫入 sessionStorage 以供後續頁面驗證
-        if (data.ticket) sessionStorage.setItem('AGI_TICKET', data.ticket);
-        window.location.href = SUCCESS_REDIRECT;
-      } else {
-        auditLog('verify', 'fail', { agi: '***' });
-        window.location.href = FAIL_REDIRECT;
-      }
-    } catch (err) {
-      auditLog('verify', 'error', { agi: '***', err: String(err) });
-      hint.textContent = '守門者暫時沉默，請稍後再試。';
-      enterBtn.disabled = false;
+    if (ok) {
+      window.location.href = SUCCESS_REDIRECT;
+    } else {
+      alert('守門者：你的密語尚未被接受。');
     }
   });
 })();
 </script>
+
 
