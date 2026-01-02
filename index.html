@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>foxokiso 播放框測試</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    .player-box {
+      width: 420px;
+      height: 420px;
+      border-radius: 50%; /* 水晶球框 */
+      margin: 40px auto;
+      background: radial-gradient(circle at center, #88f 30%, #000 100%);
+      box-shadow: 0 0 40px rgba(0, 200, 255, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 10px;
+    }
+    h2 {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #ffdc00;
+    }
+    video {
+      width: 95%;
+      height: 95%;
+      border-radius: 50%; /* 影片也裁成圓形 */
+      box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    }
+  </style>
+</head>
+<body>
+  <h1>foxokiso 播放框測試頁</h1>
+
+  <div class="player-box">
+    <h2 id="info"></h2>
+    <video id="autoVideo" controls autoplay muted>
+      <source id="videoSource" src="" type="video/mp4">
+      您的瀏覽器不支援影片播放
+    </video>
+  </div>
+
+  <script>
+    const totalVideos = 13; // 可改成 100
+    const video = document.getElementById("autoVideo");
+    const source = document.getElementById("videoSource");
+
+    function getIndexByTime() {
+      const now = new Date();
+      const minuteNumber = Math.floor(now.getTime() / (1000 * 60));
+      const slotNumber = Math.floor(minuteNumber / 5);
+      return (slotNumber % totalVideos) + 1;
+    }
+
+    function playVideo(index) {
+      const file = `foxokiso-C3-${index}.mp4`; // 確保影片檔案放在網站目錄下
+      source.src = file;
+      video.load();
+      video.play().catch(err => console.log("播放失敗:", err));
+      document.getElementById("info").innerText =
+        `現在播放的是第 ${index} 部影片：${file}`;
+    }
+
+    let currentIndex = getIndexByTime();
+    playVideo(currentIndex);
+
+    video.addEventListener("ended", () => {
+      currentIndex = (currentIndex % totalVideos) + 1;
+      playVideo(currentIndex);
+    });
+
+    setInterval(() => {
+      const timeIndex = getIndexByTime();
+      if (timeIndex !== currentIndex) {
+        currentIndex = timeIndex;
+        playVideo(currentIndex);
+      }
+    }, 60 * 1000);
+  </script>
+</body>
+</html>
