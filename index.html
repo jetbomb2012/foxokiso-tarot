@@ -1,185 +1,55 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <title>Foxokiso Markdown 電子書閱讀器</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Marked.js：將 Markdown 轉為 HTML -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <meta charset="UTF-8">
+  <title>AGI_CODE 古堡花園入口</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    :root{
-      --bg:#001f3f;
-      --panel:#111;
-      --text:#ffdc00;
-      --muted:#aaa;
-      --accent:#ff851b;
-      --link:#2ecc40;
-      --link-hover:#01ff70;
-      --border:#444;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:"Microsoft JhengHei",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-    }
-    header{
-      padding:18px 22px;
-      border-bottom:1px solid var(--border);
-      display:flex;
-      align-items:center;
-      gap:16px;
-      position:sticky;
-      top:0;
-      background:rgba(0,31,63,0.9);
-      backdrop-filter:saturate(1.2) blur(4px);
-      z-index:10;
-    }
-    header h1{
-      margin:0;
-      font-size:1.4rem;
-      color:var(--accent);
-    }
-    header .hint{
-      font-size:.9rem;
-      color:var(--muted);
-    }
-    .layout{
-      display:grid;
-      grid-template-columns:280px 1fr;
-      min-height:calc(100vh - 64px);
-    }
-    aside{
-      border-right:1px solid var(--border);
-      background:var(--panel);
-      padding:14px;
-      overflow:auto;
-    }
-    .group{
-      margin-bottom:18px;
-      border:1px solid var(--border);
-      border-radius:10px;
-      overflow:hidden;
-    }
-    .group h2{
-      margin:0;
-      padding:12px 14px;
-      font-size:1rem;
-      background:#0d0d0d;
-      color:var(--accent);
-      border-bottom:1px solid var(--border);
-    }
-    .chapters{
-      list-style:none;
-      margin:0;
-      padding:8px;
-    }
-    .chapters li{ margin:4px 0; }
-    .chapters button{
-      width:100%;
-      text-align:left;
-      padding:10px 12px;
-      border:none;
-      border-radius:8px;
-      background:transparent;
-      color:var(--text);
-      cursor:pointer;
-      transition:background .2s, transform .05s;
-    }
-    .chapters button:hover{ background:#1a1a1a; }
-    .chapters button.active{
-      background:#222;
-      outline:1px solid var(--accent);
-    }
-    main{ padding:20px; overflow:auto; }
-    .doc{
-      max-width:900px;
-      margin:0 auto;
-      background:var(--panel);
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:24px;
-      box-shadow:0 0 15px rgba(0,0,0,.35);
-    }
-    .doc h1,.doc h2,.doc h3,.doc h4{
-      color:#7fdbff;
-      margin-top:1.2em;
-    }
-    .doc a{
-      color:var(--link);
-      text-decoration:none;
-      font-weight:bold;
-    }
-    .doc a:hover{ color:var(--link-hover); text-decoration:underline; }
-    .doc pre{
-      background:#0d0d0d;
-      border:1px solid var(--border);
-      border-radius:8px;
-      padding:12px;
-      overflow:auto;
-    }
-    .doc code{ color:#ffd866; }
-    .status{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:12px;
-      color:var(--muted);
-      font-size:.9rem;
-    }
-    .status .dot{
-      width:10px;height:10px;border-radius:50%;
-      background:#888;
-    }
-    .status.loading .dot{ background:#ff9f4d; }
-    .status.ok .dot{ background:#2ecc40; }
-    .status.err .dot{ background:#ff4136; }
-    footer{
-      padding:16px;
+    body {
+      background:#0e0e0e;
+      color:#f5e9b8;
+      font-family:"Microsoft JhengHei",sans-serif;
       text-align:center;
-      color:var(--muted);
-      border-top:1px solid var(--border);
+      margin:0;
+      padding:2rem;
     }
-    @media (max-width:900px){
-      .layout{ grid-template-columns:1fr; }
-      aside{ position:sticky; top:64px; z-index:9; }
+    h1 { color:#d7c68a; letter-spacing:0.1em; }
+    .links {
+      margin-top:2rem;
+    }
+    a {
+      display:block;
+      margin:1rem auto;
+      padding:0.8rem 1.2rem;
+      max-width:18rem;
+      background:#f5e9b8;
+      color:#111;
+      text-decoration:none;
+      border-radius:6px;
+      font-weight:600;
+      letter-spacing:0.05em;
+      transition:background 0.25s;
+    }
+    a:hover { background:#d7c68a; }
+    footer {
+      margin-top:3rem;
+      font-size:0.8rem;
+      color:#a9996a;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>AGI — CODE｜Foxokiso Markdown 電子書閱讀器</h1>
-    <div class="hint">點選左側章節載入 .md 內容（支援 C 與 G 系列）</div>
-  </header>
+  <h1>AGI_CODE 古堡花園入口</h1>
+  <p>請選擇適合的閱讀器版本：</p>
 
-  <div class="layout">
-    <aside>
-      <div class="group">
-        <h2>C：Copilot 電子書</h2>
-        <ul class="chapters" id="list-c"></ul>
-      </div>
-      <div class="group">
-        <h2>G3：Gemini3 電子書</h2>
-        <ul class="chapters" id="list-g"></ul>
-      </div>
-    </aside>
-
-    <main>
-      <div class="doc">
-        <div class="status" id="status">
-          <span class="dot"></span>
-          <span id="statusText">尚未載入章節</span>
-        </div>
-        <article id="content">
-          <h2 style="color:#ff851b;margin-top:0;">歡迎進入電子書閱讀器</h2>
-          <p>左側選單包含 C 與 G 系列章節。點選任一章節，系統會以 <strong>fetch</strong> 讀取對應的 <code>.md</code> 檔案，並使用 <strong>Marked.js</strong> 轉為 HTML 顯示於此。</p>
-        </article>
-      </div>
-    </main>
+  <div class="links">
+    <a href="md-reader.html">💻 電腦版電子書閱讀器</a>
+    <a href="md-reader-mobile.html">📱 手機版電子書閱讀器</a>
   </div>
 
-  <footer>© Foxokiso — Markdown Reader · C/G 系列電子書</footer>
+  <footer>© Foxokiso — 電子書入口 · 支援電腦與手機</footer>
+</body>
+</html>
 
   <script>
     const chaptersC = [
